@@ -1,0 +1,1 @@
+import { APP_MODULE } from './app.module';
