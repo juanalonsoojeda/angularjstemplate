@@ -21,11 +21,7 @@ module.exports = function makeWebpackConfig() {
     chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js'
   };
 
-  if (isProd) {
-    config.devtool = 'source-map';
-  } else {
-    config.devtool = 'eval-source-map';
-  }
+  config.devtool = isProd ? 'source-map' : 'eval-source-map';
 
   config.module = {
     rules: [{
@@ -49,8 +45,7 @@ module.exports = function makeWebpackConfig() {
 
   if (isProd) {
     config.plugins.push(
-      new webpack.NoErrorsPlugin(),
-      new webpack.optimize.DedupePlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.UglifyJsPlugin(),
       new CopyWebpackPlugin([{
         from: __dirname + '/src/public'
