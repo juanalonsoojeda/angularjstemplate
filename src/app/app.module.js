@@ -1,11 +1,17 @@
 import * as angular from "angular";
 import uiRouter from "@uirouter/angularjs";
-import { StickyStatesPlugin } from '@uirouter/sticky-states';
-import { DSRPlugin } from '@uirouter/dsr';
-import { appComponent } from './app.component';
-import { MAIN_MODULE } from './main/main.module';
-
-import '../style/app.css';
+import {
+    StickyStatesPlugin
+} from '@uirouter/sticky-states';
+import {
+    DSRPlugin
+} from '@uirouter/dsr';
+import {
+    appComponent
+} from './app.component';
+import {
+    MAIN_MODULE
+} from './main/main.module';
 
 export const APP_MODULE = angular.module("app", [uiRouter, MAIN_MODULE.name]);
 
