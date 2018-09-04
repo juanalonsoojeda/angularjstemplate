@@ -7,7 +7,6 @@ var ENV = process.env.npm_lifecycle_event;
 var isProd = ENV === 'build';
 
 module.exports = function makeWebpackConfig() {
-
   var config = {};
 
   config.entry = {
@@ -34,24 +33,19 @@ module.exports = function makeWebpackConfig() {
     }]
   };
 
-  config.plugins = [];
-
-  config.plugins.push(
-    new HtmlWebpackPlugin({
-      template: './src/public/index.html',
-      inject: 'body'
-    })
-  )
+  config.plugins = [new HtmlWebpackPlugin({
+    template: './src/public/index.html',
+    inject: 'body'
+  })];
 
   if (isProd) {
     config.plugins.push(
-      new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.UglifyJsPlugin(),
       new CopyWebpackPlugin([{
         from: __dirname + '/src/public'
       }])
     )
-  }
+  };
 
   config.devServer = {
     contentBase: './src/public',
