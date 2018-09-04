@@ -1,5 +1,6 @@
-export const home = {
-    name: 'home',
-    url: '/home',
-    component: 'home'
-}
+
+export const teams = {
+    name: 'teams',
+    url: '/teams',
+    component: 'teams'
+};

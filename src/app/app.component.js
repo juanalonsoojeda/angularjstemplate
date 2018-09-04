@@ -1,3 +1,6 @@
+import template from './app.component.html';
+
 export const appComponent = {
-  template: require('./app.component.html')
-}
+    template: template
+};
+
